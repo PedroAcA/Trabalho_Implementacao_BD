@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--html extraido e modfificado de https://www.w3schools.com/bootstrap/bootstrap_forms.asp (acessado em 24/10/2017) -->
+<html lang="en">
+<head>
+  <title>Lista de Proprietarios </title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="container">
+<!-- forms em html para django de https://docs.djangoproject.com/en/1.11/topics/forms/ (25/10/2017)-->
+  <form action="" method="POST">
+  <!--variaveis do form adicionadas na ordem em que estao definidas em forms.py-->
+    {% csrf_token %} 
+    <div class="form-group">
+      <label for="idPartido" >Id:</label>
+      <input type="number" class="form-control" id="id_idPartido" name="idPartido" min="000000000">
+    
+    </div>
+    <div class="form-group">
+    	<label for="nome">Nome:</label>
+    	<input type="text" class="form-control" id="id_nome" name="nome"> 
+
+    </div>
+
+    <div class="form-group">
+    	<label for="sede">Endereco da sede:</label>
+    	<input type="text" class="form-control" id="id_sede" name="sede"> 
+
+    </div>
+    
+    <div class="form-group">
+    	<label for="nomePresidente">Nome presidente do partido:</label>
+    	<input type="text" class="form-control" id="id_nomePresidente" name="nomePresidente"> 
+
+    </div>
+    
+    <div class="form-group">
+    	<label for="qtdFiliados">Quantidade de filiados do partido:</label>
+    	<input type="number" class="form-control" id="id_qtdFiliados" name="qtdFiliados" min="000000000"> 
+
+    </div>
+    
+    <div class = "form-group">
+    	<label for="dataCriacao">Data de criação do partido:</label>
+    	<input type="date" class="form-control" id="id_dataCriacao" name="dataCriacao">
+
+    </div>
+    <button type="submit" class="btn btn-default">Criar partido</button>
+  </form>
+</div>
+</html>

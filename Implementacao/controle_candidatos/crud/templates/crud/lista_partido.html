@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <title>Lista de Partidos </title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="container">
+<!-exemplo de algoritmo para exibir tuplas retirado de https://stackoverflow.com/questions/271077/django-how-to-do-tuple-unpacking-in-a-template-for-loop em 15/06/2018  -!>
+{%for idPartido,nome,sede,nomePresidente,qtdFiliados,dataCriacao in lista_partido%} 
+        <p>id = {{idPartido}} </p>
+        <p>nome = {{nome}} </p>
+        <p>sede = {{sede}} </p>
+        <p>Nome presidente = {{nomePresidente}} </p>
+        <p>Quantidade de Filiados = {{qtdFiliados}} </p>
+        <p>Data de criacao = {{dataCriacao}} </p>
+{% endfor %} 
+
+</div>
+</html>

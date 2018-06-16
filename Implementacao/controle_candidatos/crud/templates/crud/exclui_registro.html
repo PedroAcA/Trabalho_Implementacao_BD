@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!--html extraido e modfificado de https://www.w3schools.com/bootstrap/bootstrap_forms.asp (acessado em 24/10/2017) -->
+<html lang="en">
+<head>
+  <title>Selecione o id(identificador) do registro que deseja excluir</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="container">
+<!-- forms em html para django de https://docs.djangoproject.com/en/1.11/topics/forms/ (25/10/2017)-->
+  <form action="" method="POST">
+  <!--variaveis do form adicionadas na ordem em que estao definidas em forms.py-->
+    {% csrf_token %} 
+    <div class="form-group">
+      <label for="id_registro" >Id:</label>
+      <input type="number" class="form-control" id="id_id_registro" name="id_registro" min= "000000000">
+    </div>  
+    <button type="submit" class="btn btn-default">Excluir registro</button>
+  </form>
+</div>
+</html>
