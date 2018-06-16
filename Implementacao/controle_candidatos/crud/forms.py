@@ -12,3 +12,9 @@ class partido_create_form(forms.Form):
 
 class registro_delete_form(forms.Form):
 	id_registro = forms.IntegerField(required=True)
+
+class cargo_create_form(forms.Form):
+	idCargo = forms.IntegerField(required=True)
+	nome = forms.CharField()
+	salario = forms.FloatField()
+	competencias = forms.CharField()
