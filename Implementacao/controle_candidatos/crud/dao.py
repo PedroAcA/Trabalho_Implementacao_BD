@@ -1,4 +1,3 @@
-
 #classe para executar comandos sql e acessar o banco de dados
 from .models import *
 from django.db import connection
@@ -63,7 +62,6 @@ def update_cargo(idCargo,nome,salario,competencias):
 #fim das funcoes de create, delete e update da tabela cargo
 
 #inicio das funcoes de create, delete e update da tabela politico
-
 def create_Politico(idPolitico,nome,apelido,foto,idPartido,idCargo):
 	with connection.cursor() as con:
 #referenciapara inserir os dados formatados na string retirada de 
