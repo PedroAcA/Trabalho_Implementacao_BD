@@ -23,5 +23,5 @@ class Politico (models.Model):
 	nome = models.CharField(max_length=200,null=False)
 	apelido = models.CharField(max_length=200,null=False)
 	foto = models.BinaryField()
-	idPartido = models.ForeignKey('Partido',on_delete=models.CASCADE,db_constraint=True)
-	idCargo = models.ForeignKey('Cargo',on_delete=models.CASCADE,db_constraint=True)
+	idPartido = models.ForeignKey('Partido')
+	idCargo = models.ForeignKey('Cargo')

@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render,redirect
 from ..dao import *
 from django.shortcuts import render
 from ..forms import *
@@ -26,7 +25,7 @@ def novo_partido(request):
 							dados_partido.cleaned_data['qtdFiliados'],
 							dados_partido.cleaned_data['dataCriacao']
 						  )
-			return HttpResponse("Novo partido adicionado.")
+			return redirect('mostrar_partido')
 		else:#formulario invalido
 			mapa_variaveis = {'form':partido_create_form()}#mapeia variaveis html com objetos do python
 			return render(request,'crud/partido/create_partido.html',mapa_variaveis) 
@@ -44,7 +43,7 @@ def excluir_partido(request):
 		id_partido=registro_delete_form(request.POST)
 		if id_partido.is_valid():
 			delete_Partido(id_partido.cleaned_data['id_registro'])
-			return HttpResponse("Partido excluido.")
+			return redirect('mostrar_partido')
 		else:
 			mapa_variaveis = {'id_registro':registro_delete_form()}
 			return render(request,'crud/exclui_registro.html',mapa_variaveis)	
@@ -64,7 +63,7 @@ def atualizar_partido(request):
 							dados_partido.cleaned_data['qtdFiliados'],
 							dados_partido.cleaned_data['dataCriacao']
 						  )
-			return HttpResponse("Partido atualizado.")
+			return redirect('mostrar_partido')
 		else:#formulario invalido
 			mapa_variaveis = {'form':partido_create_form()}#mapeia variaveis html com objetos do python
 			return render(request,'crud/partido/update_partido.html',mapa_variaveis) 

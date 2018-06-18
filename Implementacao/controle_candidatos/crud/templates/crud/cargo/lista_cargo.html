@@ -5,6 +5,9 @@
   <title>Lista de Cargos </title>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<a href="/crud/novo_cargo" >Adiciona um cargo</a>
+<a href="/crud/exclui_cargo" >Exclui um cargo</a>
+<a href="/crud/atualiza_cargo" >Atualiza um cargo</a>
 <div class="container">
 <!--exemplo de algoritmo para exibir tuplas retirado de https://stackoverflow.com/questions/271077/django-how-to-do-tuple-unpacking-in-a-template-for-loop em 15/06/2018 -->
 {%for idCargo,nome,salario,competencias in lista_cargo%} 

@@ -5,6 +5,9 @@
   <title>Lista de Políticos </title>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<a href="/crud/novo_politico" >Adiciona um político</a>
+<a href="/crud/exclui_politico" >Exclui um político</a>
+<a href="/crud/atualiza_politico" >Atualiza um político</a>
 <div class="container">
 <!--exemplo de algoritmo para exibir tuplas retirado de https://stackoverflow.com/questions/271077/django-how-to-do-tuple-unpacking-in-a-template-for-loop em 15/06/2018 -->
 {%for idPolitico,nome,apelido,foto,idPartido_id,idCargo_id in lista_politico%} 

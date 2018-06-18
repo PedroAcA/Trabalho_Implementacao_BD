@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render,redirect
 from ..dao import *
 from django.shortcuts import render
 from ..forms import *
@@ -24,7 +23,9 @@ def novo_cargo(request):
 							dados_cargo.cleaned_data['salario'],
 							dados_cargo.cleaned_data['competencias']
 						  )
-			return HttpResponse("Novo cargo adicionado.")
+			#referencia para redirect: https://docs.djangoproject.com/en/2.0/topics/http/shortcuts/
+			#acessada em 18/06/2018
+			return redirect('mostrar_cargo')
 		else:#formulario invalido
 			mapa_variaveis = {'form':cargo_create_form()}#mapeia variaveis html com objetos do python
 			return render(request,'crud/cargo/create_cargo.html',mapa_variaveis) 
@@ -42,7 +43,7 @@ def excluir_cargo(request):
 		id_cargo=registro_delete_form(request.POST)
 		if id_cargo.is_valid():#usuario digitou um id que nao eh um inteiro
 			delete_cargo(id_cargo.cleaned_data['id_registro'])
-			return HttpResponse("Cargo excluido.")
+			return redirect('mostrar_cargo')
 		else:
 			mapa_variaveis = {'id_registro':registro_delete_form()}
 			return render(request,'crud/exclui_registro.html',mapa_variaveis)	
@@ -60,7 +61,7 @@ def atualizar_cargo(request):
 						  dados_cargo.cleaned_data['salario'],
 						  dados_cargo.cleaned_data['competencias']
 						)
-			return HttpResponse("Cargo atualizado.")
+			return redirect('mostrar_cargo')
 		else:#formulario invalido
 			mapa_variaveis = {'form':cargo_create_form()}#mapeia variaveis html com objetos do python
 			return render(request,'crud/cargo/update_cargo.html',mapa_variaveis) 

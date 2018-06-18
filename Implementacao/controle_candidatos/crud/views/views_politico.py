@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render,redirect
 from ..dao import *
 from django.shortcuts import render
 from ..forms import *
@@ -26,7 +25,7 @@ def novo_politico(request):
 							request.POST.get('idPartido'),
 							request.POST.get('idCargo')
 						  )
-			return HttpResponse("Novo politico adicionado.")
+			return redirect('mostrar_politico')
 		else:#formulario invalido
 			mapa_variaveis = {'form':politico_create_form()}#mapeia variaveis html com objetos do python
 			return render(request,'crud/politico/create_politico.html',mapa_variaveis) 
@@ -44,7 +43,7 @@ def excluir_politico(request):
 		id_politico=registro_delete_form(request.POST)
 		if id_politico.is_valid():
 			delete_politico(id_politico.cleaned_data['id_registro'])
-			return HttpResponse("Politico excluido.")
+			return redirect('mostrar_politico')
 		else:
 			mapa_variaveis = {'id_registro':registro_delete_form()}
 			return render(request,'crud/exclui_registro.html',mapa_variaveis)	
@@ -64,7 +63,7 @@ def atualizar_politico(request):
 							request.POST.get('idPartido'),
 							request.POST.get('idCargo')
 						)
-			return HttpResponse("Politico atualizado.")
+			return redirect('mostrar_politico')
 		else:#formulario invalido
 			mapa_variaveis = {'form':politico_create_form()}#mapeia variaveis html com objetos do python
 			return render(request,'crud/politico/update_politico.html',mapa_variaveis) 

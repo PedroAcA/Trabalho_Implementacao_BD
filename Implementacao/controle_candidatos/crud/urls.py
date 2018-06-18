@@ -2,8 +2,9 @@ from django.conf.urls import url
 from views import views_partido 
 from views import views_cargo 
 from views import views_politico 
+from views import views_gerais 
 urlpatterns = [
- #   url(r'^$', views.indice, name='indice'),
+    url(r'^$', views_gerais.pag_princ, name='pag_princ'),
  	#inicio das urls para crud de partido
  	url(r'novo_partido/', views_partido.novo_partido, name='novo_partido'),
  	url(r'lista_partido/',views_partido.mostrar_partido, name='mostrar_partido'),
