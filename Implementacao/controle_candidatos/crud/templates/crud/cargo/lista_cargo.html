@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <div class="container">
 <!--exemplo de algoritmo para exibir tuplas retirado de https://stackoverflow.com/questions/271077/django-how-to-do-tuple-unpacking-in-a-template-for-loop em 15/06/2018 -->
-{%for idcargo,nome,salario,competencias in lista_cargo%} 
-        <p>Id = {{idcargo}} </p>
+{%for idCargo,nome,salario,competencias in lista_cargo%} 
+        <p>Id = {{idCargo}} </p>
         <p>Nome = {{nome}} </p>
         <p>Salário = {{salario}} </p>
         <p>Nome presidente = {{competencias}} </p>

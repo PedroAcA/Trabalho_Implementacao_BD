@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <title>Lista de Políticos </title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="container">
+<!--exemplo de algoritmo para exibir tuplas retirado de https://stackoverflow.com/questions/271077/django-how-to-do-tuple-unpacking-in-a-template-for-loop em 15/06/2018 -->
+{%for idPolitico,nome,apelido,foto,idPartido_id,idCargo_id in lista_politico%} 
+        <p>id = {{idPolitico}} </p>
+        <p>nome do politico= {{nome}} </p>
+        <p>apelido do politico= {{apelido}} </p>
+        <!--img src= adaptado de https://blog.thetechband.com/2018/05/storing-and-displaying-images-with-base64.html (acessado em 17/06/2018)-->
+        <img src= "data:image/png;base64,{{foto}}">
+        <p>id do partido  = {{idPartido_id}} </p>
+        <p>id do cargo = {{idCargo_id}} </p>
+{% endfor %} 
+
+</div>
+</html>

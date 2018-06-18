@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--html extraido e modfificado de https://www.w3schools.com/bootstrap/bootstrap_forms.asp (acessado em 24/10/2017) -->
+<html lang="en">
+<head>
+  <title>Dados para adicionar um Político ao banco</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="container">
+<!-- forms em html para django de https://docs.djangoproject.com/en/1.11/topics/forms/ (25/10/2017)-->
+  <!--referencia para enctype extraida de https://stackoverflow.com/questions/28841054/why-does-my-django-form-keep-saying-this-field-is-required em 17/06/2018-->
+  <form action="" method="POST" enctype= multipart/form-data>
+  <!--variaveis do form adicionadas na ordem em que estao definidas em forms.py-->
+    {% csrf_token %} 
+    <div class="form-group">
+      <label for="idPolitico" >Id:</label>
+      <input type="number" class="form-control" id="id_idPolitico" name="idPolitico" min="000000000">
+    
+    </div>
+    <div class="form-group">
+      <label for="nome">Nome:</label>
+      <input type="text" class="form-control" id="id_nome" name="nome"> 
+
+    </div>
+
+    <div class="form-group">
+      <label for="apelido">Apelido do político:</label>
+      <input type="text" class="form-control" id="id_apelido" name="apelido"> 
+
+    </div>
+    <!--Referencia para colocar imagem em um form extraida de
+    https://www.w3schools.com/tags/att_input_accept.asp em
+    17/06/2018-->
+    <div class="form-group">
+      <label for="foto">Foto do político:</label>
+      <input type="file" class="form-control" id="id_foto" name="foto" accept="image/*"> 
+    </div>
+    
+    <div class="form-group">
+      <label for="idPartido">Id do partido ao qual o político está filiado:</label>
+      <input type="number" class="form-control" id="id_idPartido" name="idPartido" min="000000000"> 
+    </div>
+    
+    <div class = "form-group">
+      <label for="idCargo">Id do cargo ao qual o político deseja concorrer:</label>
+      <input type="number" class="form-control" id="id_idCargo" name="idCargo">
+
+    </div>
+    <button type="submit" class="btn btn-default">Criar político</button>
+  </form>
+</div>
+</html>

@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
-
+#ref para binaryfiled de https://docs.djangoproject.com/en/1.11/ref/models/fields/ em 17/06/2018
 # Create your models here.
 class Partido (models.Model):
 	idPartido = models.IntegerField(primary_key=True)
@@ -22,6 +22,6 @@ class Politico (models.Model):
 	idPolitico = models.IntegerField(primary_key=True)
 	nome = models.CharField(max_length=200,null=False)
 	apelido = models.CharField(max_length=200,null=False)
-	foto = models.FileField(upload_to='Trabalho_Implementacao_BD/')
-	idPartido = models.ForeignKey(Partido,on_delete=models.CASCADE)
-	idCargo = models.ForeignKey(Cargo,on_delete=models.CASCADE)
+	foto = models.BinaryField()
+	idPartido = models.ForeignKey('Partido',on_delete=models.CASCADE,db_constraint=True)
+	idCargo = models.ForeignKey('Cargo',on_delete=models.CASCADE,db_constraint=True)

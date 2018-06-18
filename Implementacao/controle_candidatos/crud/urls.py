@@ -1,5 +1,4 @@
 from django.conf.urls import url
-
 from . import views
 
 urlpatterns = [
@@ -10,10 +9,19 @@ urlpatterns = [
  	url(r'exclui_partido/',views.excluir_partido, name='excluir_partido'),
  	url(r'atualiza_partido/',views.atualizar_partido,name='atualizar_partido'),
  	#fim das urls para crud de partido
+ 	
  	#inicio das urls para crud de cargo
  	url(r'novo_cargo/', views.novo_cargo, name='novo_cargo'),
  	url(r'lista_cargo/',views.mostrar_cargo, name='mostrar_cargo'),
  	url(r'exclui_cargo/',views.excluir_cargo, name='excluir_cargo'),
  	url(r'atualiza_cargo/',views.atualizar_cargo,name='atualizar_cargo'),
  	#fim das urls para crud de cargo
+
+ 	#inicio das urls para crud de politico
+ 	
+ 	url(r'novo_politico/', views.novo_politico, name='novo_politico'),
+ 	url(r'lista_politico/',views.mostrar_politico, name='mostrar_politico'),
+ 	url(r'exclui_politico/',views.excluir_politico, name='excluir_politico'),
+ 	url(r'atualiza_politico/',views.atualizar_politico,name='atualizar_politico'),
+ 	#fim das urls para crud de politico
 ]

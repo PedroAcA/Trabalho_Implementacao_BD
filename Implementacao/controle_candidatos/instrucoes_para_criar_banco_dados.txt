@@ -1,0 +1,4 @@
+No arquivo settings.py (dentro da pasta controle_candidatos), troca o campo 'PASSWORD':'mysql' para 'PASSWORD': 'sua_senha', onde sua_senha eh a senha definida para o usurario root do seu mysql  
+rodar em terminal na pasta do manage.py:
+mysql -u root -p <criar_banco_dados.sql
+

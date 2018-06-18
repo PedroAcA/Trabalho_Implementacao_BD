@@ -74,13 +74,30 @@ WSGI_APPLICATION = 'controle_candidatos.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
+#DATABASES = {
+ #   'default': {
+  #      'ENGINE': 'django.db.backends.sqlite3',
+   #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    #}
+#}
+#banco de dados mudado de sqlite3(padrao do django) para mysql porque o sqlite3
+#nao garantia a contraint de [fk]=[pk] quando fk!=NULL
+#Referencia para fazer a mudanca(acessadas em 17/06/2018):
+#https://stackoverflow.com/questions/24462007/how-to-deal-with-this-error-1049-unknown-database-users-ohyunjun-work-astra
+
+#se o makemigrations ou migrate dizer que nao ha pymsql, entao fazer
+#no terminal sudo apt-get install python-pymysql
+#Referencia de 17/06/2018:https://stackoverflow.com/questions/33446347/no-module-named-pymysql
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'crud',
+        'USER': 'root',
+        'PASSWORD': 'mysql',
+        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
