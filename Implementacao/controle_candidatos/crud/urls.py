@@ -18,7 +18,9 @@ urlpatterns = [
  	url(r'exclui_cargo/',views_cargo.excluir_cargo, name='excluir_cargo'),
  	url(r'atualiza_cargo/',views_cargo.atualizar_cargo,name='atualizar_cargo'),
  	#fim das urls para crud de cargo
-
+ 	
+ 	url(r'view_sql/',views_cargo.mostra_view_sql,name='view_sql'),
+ 	url(r'procedure_sql/',views_cargo.executa_procedure_sql,name='executa_procedure_sql'),
  	#inicio das urls para crud de politico
  	
  	url(r'novo_politico/', views_politico.novo_politico, name='novo_politico'),

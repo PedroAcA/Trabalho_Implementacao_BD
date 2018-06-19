@@ -4,6 +4,7 @@
 	Estrutura do repositório:
 		->Projeto: pasta contendo os diagramas do modelo entidade relacionamento e os diagramas do modelo relacional
 		->Implementacao: pasta contendo o SQL e o código para desnvolver o CRUD
+		->Algebra_Relacional: pasta contendo consultas em Álgebra Relacional
 		->Especificacao_Projeto_BD_2018_1.pdf: documento com os requisitos do projeto
 		->Tema_Projeto_BD_2018_1.pdf: documento com todos os temas disponíveis
 		->LICENSE: arquivo de lincenca MIT

@@ -1,0 +1,6 @@
+Para o comando da procedure ser reconhecido pelo SGBD mysql, foi necessária a adição dos delimitadores "DELIMITER $$" e "DELIMITER ;", como descirto em https://stackoverflow.com/questions/639089/sql-syntax-error-when-creating-a-stored-procedure-in-mysql (acessado em 18/06/2018).
+Maiores informacoes sobre uso de procedure podem ser encontrados em (todos os links abaixo foram acessados no dia 18/06/2018):
+https://www.w3resource.com/sql/sql-procedure.php
+https://www.w3resource.com/mysql/mysql-procedure.php
+https://stackoverflow.com/questions/7566948/mysql-procedure-with-if-statement
+https://stackoverflow.com/questions/733349/list-of-stored-procedures-functions-mysql-command-line

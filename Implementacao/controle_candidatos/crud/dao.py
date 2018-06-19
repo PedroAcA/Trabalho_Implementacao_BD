@@ -10,6 +10,26 @@ def retrieve_tabela(nome_tabela):
 		con.execute("SELECT * FROM {}".format(nome_acesso_tabela))
 		return con.fetchall()
 
+def create_view():#cria view da tabela cargo com os campos idCargo e nome 
+	with connection.cursor() as con:
+		con.execute("CREATE VIEW v as SELECT idCargo,nome FROM crud_cargo;")
+
+def show_view():
+	with connection.cursor() as con:
+		con.execute("SELECT * FROM v")
+		result= con.fetchall()
+		print result
+		return result
+
+def destroy_view():
+	with connection.cursor() as con:
+		con.execute("DROP VIEW v")	
+
+def execute_procedure():#so chame essa funcao apos ter executado o script procedure.sql
+	with connection.cursor() as con:
+		con.execute("call teste('x')")
+		con.execute("call teste('y')")	
+
 #inicio das funcoes de create, delete e update da tabela partido
 def create_Partido(idPartido,nome,sede,nomePresidente,qtdFiliados,dataCriacao):
 	with connection.cursor() as con:

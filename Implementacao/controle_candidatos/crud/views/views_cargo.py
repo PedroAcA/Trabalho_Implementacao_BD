@@ -2,7 +2,6 @@
 from __future__ import unicode_literals
 from django.shortcuts import render,redirect
 from ..dao import *
-from django.shortcuts import render
 from ..forms import *
 #comando from.. para importar arquivos no diretorio acima do atual
 #encontrados em https://stackoverflow.com/questions/12450930/from-import-from-module
@@ -69,3 +68,13 @@ def atualizar_cargo(request):
 		mapa_variaveis = {'form':cargo_create_form()}#mapeia variaveis html com objetos do python
 		return render(request,'crud/cargo/update_cargo.html',mapa_variaveis) 
 #fim das funcoes de create, retrieve, update e delete da tabela cargo
+def mostra_view_sql(request):
+	create_view()
+	result_view = show_view()
+	destroy_view()
+	mapa_variaveis = {'result_view':result_view}#mapeia variaveis html com objetos do python
+	return render(request,'crud/cargo/view_sql.html',mapa_variaveis)	
+
+def executa_procedure_sql(request):
+	execute_procedure()
+	return redirect('mostrar_cargo')
