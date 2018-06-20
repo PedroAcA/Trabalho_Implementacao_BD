@@ -217,16 +217,4 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
-CREATE PROCEDURE exclui_trolao(nome VARCHAR(200))
 
-BEGIN
-
-	IF ((nome != 'trolao')) THEN
-		INSERT INTO 'controle_candidatos'.'Cargo' VALUES (40,nome,50.6, 'isso ai');
-
-	ELSE
-
-		SELECT 'Nao aceito trolao!' AS Msg;
-
-	END IF;
-END;
