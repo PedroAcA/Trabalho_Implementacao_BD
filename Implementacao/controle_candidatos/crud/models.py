@@ -25,3 +25,51 @@ class Politico (models.Model):
 	foto = models.BinaryField()
 	idPartido = models.ForeignKey('Partido')
 	idCargo = models.ForeignKey('Cargo')
+
+class PoliticoEmMandato (models.Model):
+	idPoliticoEmMandato=models.ForeignKey('Politico')
+	dataPosse = models.DateField()
+
+class Candidato (models.Model):
+	idCandidato = models.ForeignKey('Politico')
+	dataNascimento = models.DateField()
+
+class Politico_Cargo (models.Model):
+	idPolitico = models.ForeignKey('Politico')
+	idCargo = models.ForeignKey('Cargo')
+	nroEleitora = models.IntegerField()
+	tipoLocalCargo = models.CharField(max_length=1)
+	nomeLocalCargo = models.CharField(max_length=200)
+
+class Processo (models.Model):
+	idProcesso = models.AutoField(primary_key=True)
+	descricao = models.CharField(max_length=200)
+	dataCriacao = models.CharField(max_length=200)
+	terminou = models.CharField(max_length=200)
+
+class Politico_Processos (models.Model):
+	idPolitico = models.ForeignKey('Politico')
+	idProcesso = models.ForeignKey('Processo')
+
+class Doador (models.Model):
+	idDoador = models.AutoField(primary_key=True)
+	nome = models.CharField(max_length=200)
+	valor = models.FloatField()
+
+class Politico_Doador (models.Model):
+	idPolitico = models.ForeignKey('Politico')
+	idDoador = models.ForeignKey('Doador')
+
+class AvaliacaoPopular (models.Model):
+	idAvaliacaoPopular = models.AutoField(primary_key=True)
+	idPoliticoAvaliado = models.ForeignKey('PoliticoEmMandato')
+	nota = models.IntegerField()
+	descricao = models.CharField(max_length=200)
+
+class PromessasCampanha (models.Model):
+	idPromessasCampanha = models.AutoField(primary_key=True)
+	idCandidato = models.ForeignKey('Candidato')
+	plano = models.CharField(max_length=200)
+	descricao = models.CharField(max_length=200)
+	dataOrigem = models.CharField(max_length=200)
+	
