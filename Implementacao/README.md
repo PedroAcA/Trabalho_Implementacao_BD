@@ -17,6 +17,9 @@ Estrutura da pasta de implementação:
 
 		->drop.sql: arquivo sql com comando para apagar o banco de dados e a procedure se esses existirem
 
+		->diagrama_acesso_bd.png:imagem que contém o diagrama apresentando como a interface gráfica acessa a camada de persistência 
+
+
 		->README.md: este arquivo
 
 Instruções para instalar o Django encontradas em https://docs.djangoproject.com/en/1.11/topics/install/ (acessado no dia 16/06/2018)
