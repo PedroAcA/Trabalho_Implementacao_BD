@@ -1,24 +1,42 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head>
-  <title>Lista de Partidos </title>
-  <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<a href="/crud/novo_partido" >Adiciona um partido</a>
-<a href="/crud/exclui_partido" >Exclui um partido</a>
-<a href="/crud/atualiza_partido" >Atualiza um partido</a>
-<a href="/" >Página Principal</a>
-<div class="container">
-<!--exemplo de algoritmo para exibir tuplas retirado de https://stackoverflow.com/questions/271077/django-how-to-do-tuple-unpacking-in-a-template-for-loop em 15/06/2018 -->
-{%for idPartido,nome,sede,nomePresidente,qtdFiliados,dataCriacao in lista_partido%} 
-        <p>id = {{idPartido}} </p>
-        <p>nome = {{nome}} </p>
-        <p>sede = {{sede}} </p>
-        <p>Nome presidente = {{nomePresidente}} </p>
-        <p>Quantidade de Filiados = {{qtdFiliados}} </p>
-        <p>Data de criacao = {{dataCriacao}} </p>
-{% endfor %} 
+	<head>
+  		<title>Lista de Partidos </title>
+  		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<a href="/crud/novo_partido" >Adiciona um partido</a>
+		<a href="/crud/exclui_partido" >Exclui um partido</a>
+		<a href="/crud/atualiza_partido" >Atualiza um partido</a>
+		<a href="/" >Página Principal</a>
+	</head>	
+	<div class="container">
+        <!--Referencias para criar tabela, alinhar os nomes das colunas e adicionar borda as celulas (todas acessadas em 19/06/2018):
+            https://www.w3schools.com/html/html_tables.asp
+            https://www.w3schools.com/tags/att_td_align.asp
+            https://www.w3schools.com/tags/att_table_border.asp
 
-</div>
+        -->
+		<table style="width:auto" border="1">
+ 			 <tr>
+    			<th align="left">Id</th>
+    			<th align="left">Nome</th>
+    			<th align="left">Sede</th>
+    			<th align="left">Nome presidente </th>
+    			<th align="left">Quantidade de Filiados</th>
+    			<th align="left">Data de criacao</th>
+  			</tr>
+<!--exemplo de algoritmo para exibir tuplas retirado de https://stackoverflow.com/questions/271077/django-how-to-do-tuple-unpacking-in-a-template-for-loop em 15/06/2018 -->
+			{%for idPartido,nome,sede,nomePresidente,qtdFiliados,dataCriacao in lista_partido%} 
+    	    	<tr>
+    	    		<td>{{idPartido}} </td>
+    	    		<td>{{nome}} </td>
+    	    		<td>{{sede}} </td>
+    	    		<td>{{nomePresidente}} </td>
+    	    		<td>{{qtdFiliados}} </td>
+        			<td>{{dataCriacao}} </td>
+				</tr>
+			{% endfor %} 
+		</table>
+	</div>
 </html>

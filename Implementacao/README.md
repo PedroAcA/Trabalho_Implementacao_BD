@@ -5,26 +5,46 @@ Estrutura da pasta de implementação:
 
 		->controle_candidatos: pasta contendo os apps em Django para fazer as funções de Create Retrieve Update e Delete (CRUD)
 
+		->comentarios_sobre_procedure.txt: arquivo com referencias (links) sobre como utilizar.
+
+
+		->criar_banco_dados.sql: arquivo com o comando sql para criar o banco de dados utilizado pelo programa. Cria um banco vazio (sem tabelas).
+
+
+		->instrucoes_para_criar_banco_dados.txt: arquivo com instruções para configurar o MySQL no Django e para criar o banco de dados vazio sem utilizar comandos SQL. As instruções para criar o banco vazio também estão descritas abaixo nesse documento.  
+
+		->procedure.sql: arquivo sql com comando para criar uma procedure
+
+		->drop.sql: arquivo sql com comando para apagar o banco de dados e a procedure se esses existirem
+
+		->README.md: este arquivo
+
 Instruções para instalar o Django encontradas em https://docs.djangoproject.com/en/1.11/topics/install/ (acessado no dia 16/06/2018)
 
-Após instalar o Django, abrir o terminal na pasta controle_candidatos/ (a que possui o arquivo manage.py) e executar os seguintes comandos de terminal:
+Devido ao uso do Sistema Gerenciador de Banco de Dados (SGBD) MySQL, o comando abaixo deve ser executado em terminal para criar o banco de dados necessário à utilizacao do projeto:
+		
+		$ mysql -u root -p <criar_banco_dados.sql
 
+Para maiores instruçoes sobre como configurar o Django para utilizar MySQL, consulte o arquivo 'instrucoes_para_criar_banco_dados.txt'.
+
+Se desejar utilizar a procedure de teste, digitar no terminal:
+
+		$ mysql -u root -p crud<procedure.sql
+
+Após instalar o Django e criar o banco de dados, abrir o terminal na pasta controle_candidatos/ (a que possui o arquivo manage.py) e executar os seguintes comandos de terminal:
+		
 		$ python manage.py makemigrations crud
 
-		$ python manage.py migrate
+		$ python manage.py migrate 
 
 		$ python manage.py runserver
 
-Esses comandos vão, respectivamente, transformar o modelo relacional em um sql (caso não tenho sido feito ainda), criar o banco de dados e iniciar o servidor. Para usar o crud, digite no seu navegador web apos o runserver uma das seguintes urls:
-
-		http://127.0.0.1:8000/crud/lista_partido/ 
-
-		http://127.0.0.1:8000/crud/novo_partido/
-
-		http://127.0.0.1:8000/crud/exclui_partido/
-
-		http://127.0.0.1:8000/crud/atualiza_partido/
-
+Esses comandos vão, respectivamente, transformar o modelo relacional em um sql (caso não tenho sido feito ainda), criar as tabelas do banco de dados e iniciar o servidor. Para usar o crud, va ate 'http://127.0.0.1:8000' e escolha uma das opções que se localizam na parte superior da página. 
+		
 Se desejar ver o sql gerado pelo django, digitar no terminal: 
 
 		$ python manage.py sqlmigrate crud 0001
+
+Se desejar apagar o banco de dados e a procedure em conjunto, digitar no terminal:
+		$ mysql -u root -p crud<drop.sql
+

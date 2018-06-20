@@ -1,25 +1,47 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head>
-  <title>Lista de Políticos </title>
-  <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<a href="/crud/novo_politico" >Adiciona um político</a>
-<a href="/crud/exclui_politico" >Exclui um político</a>
-<a href="/crud/atualiza_politico" >Atualiza um político</a>
-<a href="/" >Página Principal</a>
-<div class="container">
-<!--exemplo de algoritmo para exibir tuplas retirado de https://stackoverflow.com/questions/271077/django-how-to-do-tuple-unpacking-in-a-template-for-loop em 15/06/2018 -->
-{%for idPolitico,nome,apelido,foto,idPartido_id,idCargo_id in lista_politico%} 
-        <p>id = {{idPolitico}} </p>
-        <p>nome do politico= {{nome}} </p>
-        <p>apelido do politico= {{apelido}} </p>
-        <!--img src= adaptado de https://blog.thetechband.com/2018/05/storing-and-displaying-images-with-base64.html (acessado em 17/06/2018)-->
-        <img src= "data:image/png;base64,{{foto}}">
-        <p>id do partido  = {{idPartido_id}} </p>
-        <p>id do cargo = {{idCargo_id}} </p>
-{% endfor %} 
+	<head>
+  		<title>Lista de Políticos </title>
+  		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<a href="/crud/novo_politico" >Adiciona um político</a>
+		<a href="/crud/exclui_politico" >Exclui um político</a>
+		<a href="/crud/atualiza_politico" >Atualiza um político</a>
+		<a href="/" >Página Principal</a>
+	</head>	
+	
+	<div class="container">
+	<!--Referencias para criar tabela, alinhar os nomes das colunas e adicionar borda as celulas (todas acessadas em 19/06/2018):
+			https://www.w3schools.com/html/html_tables.asp
+			https://www.w3schools.com/tags/att_td_align.asp
+			https://www.w3schools.com/tags/att_table_border.asp
 
-</div>
+	-->
+		<table style="width:auto" border="1">
+ 			 <tr>
+    			<th align="left">Id</th>
+    			<th align="left">Nome</th>
+    			<th align="left">Apelido</th>
+    			<th align="left">Foto </th>
+    			<th align="left">Id do partido ao qual o político está filiado</th>
+    			<th align="left">Id do cargo ao qual o político é candidato</th>
+  			</tr>
+	<!--exemplo de algoritmo para exibir tuplas retirado de https://stackoverflow.com/questions/271077/django-how-to-do-tuple-unpacking-in-a-template-for-loop em 15/06/2018 -->
+			{%for idPolitico,nome,apelido,foto,idPartido_id,idCargo_id in lista_politico%}
+				<tr> 
+        			<td>{{idPolitico}} </td>
+        			<td>{{nome}} </td>
+        			<td>{{apelido}} </td>
+        			<!--img src= adaptado de https://blog.thetechband.com/2018/05/storing-and-displaying-images-with-base64.html (acessado em 17/06/2018)-->
+        			<!--Referencia para inserir a imagem em uma celula da tabela com escala menor retirada de  https://stackoverflow.com/questions/19526307/how-do-i-scale-an-image-proportionally-within-a-table-cell-of-a-fixed-size em 19/06/2018-->
+        			<td style="width:200px; height:200px; text-align:left; vertical-align:middle">
+        				<img src= "data:image/png;base64,{{foto}}" style="max-height:100%; max-width:100%">
+        			</td>
+        			<td>{{idPartido_id}} </td>
+    	    		<td>{{idCargo_id}} </td>
+				</tr>
+			{% endfor %}
+		</table>
+	</div>
 </html>

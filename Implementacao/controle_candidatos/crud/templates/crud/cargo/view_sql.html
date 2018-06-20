@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head>
-  <title>Lista de Cargos </title>
-  <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<a href="/" >Página Principal</a>
-<div class="container">
-<!--exemplo de algoritmo para exibir tuplas retirado de https://stackoverflow.com/questions/271077/django-how-to-do-tuple-unpacking-in-a-template-for-loop em 15/06/2018 -->
-{%for idCargo,nome in result_view%} 
-        <p>Id = {{idCargo}} </p>
-        <p>Nome = {{nome}} </p>
-{% endfor %} 
+	<head>
+  		<title>Lista de Cargos </title>
+  		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<a href="/" >Página Principal</a>
+	</head>
+	<div class="container">
+		<!--Referencias para criar tabela, alinhar os nomes das colunas e adicionar borda as celulas (todas acessadas em 19/06/2018):
+			https://www.w3schools.com/html/html_tables.asp
+			https://www.w3schools.com/tags/att_td_align.asp
+			https://www.w3schools.com/tags/att_table_border.asp
 
-</div>
+		-->
+ 		<table style="width:auto" border="1">
+ 			 <tr>
+    			<th align="left">Id</th>
+    			<th align="left">Nome</th>
+  			</tr>
+<!--exemplo de algoritmo para exibir tuplas retirado de https://stackoverflow.com/questions/271077/django-how-to-do-tuple-unpacking-in-a-template-for-loop em 15/06/2018 -->
+			{%for idCargo,nome in result_view%} 
+				<tr>
+        			<td>{{idCargo}} </td>
+        			<td>{{nome}} </td>
+        		</tr>
+			{% endfor %} 
+		</table>
+	</div>
 </html>

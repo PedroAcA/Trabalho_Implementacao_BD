@@ -1,22 +1,38 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head>
-  <title>Lista de Cargos </title>
-  <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<a href="/crud/novo_cargo" >Adiciona um cargo</a>
-<a href="/crud/exclui_cargo" >Exclui um cargo</a>
-<a href="/crud/atualiza_cargo" >Atualiza um cargo</a>
-<a href="/" >Página Principal</a>
-<div class="container">
-<!--exemplo de algoritmo para exibir tuplas retirado de https://stackoverflow.com/questions/271077/django-how-to-do-tuple-unpacking-in-a-template-for-loop em 15/06/2018 -->
-{%for idCargo,nome,salario,competencias in lista_cargo%} 
-        <p>Id = {{idCargo}} </p>
-        <p>Nome = {{nome}} </p>
-        <p>Salário = {{salario}} </p>
-        <p>Nome presidente = {{competencias}} </p>
-{% endfor %} 
+	<head>
+  		<title>Lista de Cargos </title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<a href="/crud/novo_cargo" >Adiciona um cargo</a>
+		<a href="/crud/exclui_cargo" >Exclui um cargo</a>
+		<a href="/crud/atualiza_cargo" >Atualiza um cargo</a>
+		<a href="/" >Página Principal</a>
+	</head>
+	<div class="container">
+		<!--Referencias para criar tabela, alinhar os nomes das colunas e adicionar borda as celulas (todas acessadas em 19/06/2018):
+			https://www.w3schools.com/html/html_tables.asp
+			https://www.w3schools.com/tags/att_td_align.asp
+			https://www.w3schools.com/tags/att_table_border.asp
 
-</div>
+		-->
+ 		<table style="width:auto" border="1">
+ 			 <tr>
+    			<th align="left">Id</th>
+    			<th align="left">Nome</th>
+    			<th align="left">Salário</th>
+    			<th align="left">Competências do cargo </th>
+  			</tr>
+<!--exemplo de algoritmo para exibir tuplas retirado de https://stackoverflow.com/questions/271077/django-how-to-do-tuple-unpacking-in-a-template-for-loop em 15/06/2018 -->
+			{%for idCargo,nome,salario,competencias in lista_cargo%} 
+        		<tr>
+        			<td>{{idCargo}} </td>
+        			<td>{{nome}} </td>
+        			<td>{{salario}} </td>
+        			<td>{{competencias}} </td> 	
+        		</tr>
+			{% endfor %} 
+		</table>
+	</div>
 </html>
