@@ -88,7 +88,7 @@ def create_Politico(idPolitico,nome,apelido,foto,idPartido,idCargo):
 #https://www.learnpython.org/en/String_Formatting em 16/06/2018
 #referencia para base64.b64encode extraida de https://code.tutsplus.com/tutorials/base64-encoding-and-decoding-using-python--cms-25588
 #em 17/06/2018
-		con.execute("INSERT INTO crud_politico"+
+		con.execute("INSERT INTO crud_politico (idPolitico,nome,apelido,foto,idPartido_id,idCargo_id)"+
 					" VALUES (%s,'%s','%s','%s',%s,%s)"%(idPolitico,nome,apelido,base64.b64encode(foto.read()),idPartido,idCargo)
 				   )
 

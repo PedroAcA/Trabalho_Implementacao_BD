@@ -24,11 +24,12 @@
     			<th align="left">Nome</th>
     			<th align="left">Apelido</th>
     			<th align="left">Foto </th>
-    			<th align="left">Id do partido ao qual o político está filiado</th>
     			<th align="left">Id do cargo ao qual o político é candidato</th>
+    			<th align="left">Id do partido ao qual o político está filiado</th>
+    			
   			</tr>
 	<!--exemplo de algoritmo para exibir tuplas retirado de https://stackoverflow.com/questions/271077/django-how-to-do-tuple-unpacking-in-a-template-for-loop em 15/06/2018 -->
-			{%for idPolitico,nome,apelido,foto,idPartido_id,idCargo_id in lista_politico%}
+			{%for idPolitico,nome,apelido,foto,idCargo_id,idPartido_id in lista_politico%}
 				<tr> 
         			<td>{{idPolitico}} </td>
         			<td>{{nome}} </td>
@@ -38,8 +39,9 @@
         			<td style="width:200px; height:200px; text-align:left; vertical-align:middle">
         				<img src= "data:image/png;base64,{{foto}}" style="max-height:100%; max-width:100%">
         			</td>
+        			<td>{{idCargo_id}} </td>
         			<td>{{idPartido_id}} </td>
-    	    		<td>{{idCargo_id}} </td>
+    	    		
 				</tr>
 			{% endfor %}
 		</table>
