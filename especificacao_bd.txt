@@ -1,8 +1,22 @@
-Devido à liberade de poder criar as entidades de acorodo com as caracteristicas descritas nos pdf, criou-se uma especificação para o banco de dados.
-Versão 1.2(14/06/2018):	
-	Deseja-se criar um banco de dados para monitorar as candidaturas aos cargos políticos no Brasil (tanto de pessoas com mandato na gestão atual como as que não possuem mandato). Para tanto, deseja-se cadastrar o nome, foto, data de nascimento, apelido, o cargo ao qual o candidato deseja concorrer a vaga e o partido em que o candidato está afiliado. 
-	É necessário conhecer o nome do cargo no qual haverá candidatura, descrição de suas competências, salário mensal em reais, número eleitoral associado ao cargo, bem como o nome do estado (ou nome do município quando se aplicar) ao qual pertence a candidatura a esse cargo.
-	Os dados a serem armazenados de um partido são: nome do partido, data de criação, nome do presidente do partido, quantidade de filiados e sede do partido. Um partido pode ter entre 0 a n políticos candidatos para a eleição.
-	Um candidato deve se candidatar a somente 1 cargo e deve estar afiliado a somente 1 partido. Todo cargo tem que ser de um dos tipos: Presidente, Senador, Deputado Federal, Deputado Estadual, Vereador, Prefeito ou Governador. Além disso, um candidato deve, obrigatoriamente, ter um vice ou vários suplentes.
-	Com o intuito de poder avaliar as propostas e projetos dos candidatos, faz-se necessário guardar um histórico de promessas de campanha (com o data de origem e descrição da proposta, plano para cumpri-la  e candidato que propôs). Um candidato que nao esta em mandato pode fazer de 0 a n propostas.  Além disso, armazenar-se-á os poliicos em mandato (nome do politico, cargo que ele ocupa, data da posse, apelido e foto do político) e uma avaliação popular sobre o mandato desse político (com uma nota de satisfação e descrição sobre o mandato atual). Um politico pode ter entre 0 e n avaliacoes e toda avalicao tem que obrigatoriamente ter um politico associada e não pode ser associada a mais de um político.
-	Para monitorar possíveis casos de corrupção do candidato (lembrando que os politicos com mandatos atuais sao possiveis candidatos e, por isso, serão considerados candidatos), é necessário armazenar os doadores da campanha (nome do doador, valor doado e candidato que recebeu a doacao). Um político pode ter de nenhum a vários doadores e um doador não é obrigado a fazer doeações e pode fazer doações para várias pessoas. Além disso, os processos que o candidato sofre na justiça serão armazenados e devem conter:numero do processo, descrição do processo, se ele terminou, data de criação do processo. Um político pode ter entre 0 ou vários processos contra ele e todo processo precisa estar associado a um político e pode envolver vários políticos ao mesmo tempo.
+Para o banco de dados a ser construído, é necessário conhecer o nome do cargo, além da descrição de suas competências, salário mensal em reais, quantidade de digitos existentes na urna (chamado aqui de 'número eleitoral') associado e o nome do estado (ou nome do município quando se aplicar) ao qual pertence a candidatura a esse cargo. 
+
+	Todo cargo tem que ser de um dos tipos: Presidente, Senador, Deputado Federal, Deputado Estadual, Vereador, Prefeito ou Governador. Um cargo pode ter candidaturas de vários políticos e todo cargo precisa de pelo menos 1 político com candidatura.
+
+	Para um partido, deve-se conhecer: seu nome, data de criação, nome do presidente do partido, quantidade de filiados e sede do partido. Um partido pode ter vários políticos candidatos filiados e nem todo partido precisa ter um político  filidado.
+
+	Para um político, deseja-se cadastrar o nome, foto, data de nascimento (se não possui mandato), a data da pose (se ele possuir mandato), apelido, o cargo ao qual o candidato deseja concorrer e o partido em que o candidato está afiliado. O político pode estar atualmente  em mandato ou ser somente um candidato. 
+    
+    Um político deve se candidatar obrigatóriamente a somente 1 cargo e deve estar afiliado a somente 1 partido.  Além disso, um político titular deve, obrigatoriamente, ter um vice e pode ter vários suplentes (quando couber).
+
+	Com o intuito de poder avaliar as propostas e projetos dos candidatos, faz-se necessário guardar um histórico de promessas de campanha contendo: a data de origem, a descrição da proposta, o plano para cumpri-la  e candidato que a propôs. Um candidato pode várias promessas se desejar. Se não for de seu interesse, pode não prometer. 
+    
+    Visando avalizar os poliicos em mandato, uma avaliação popular sobre o mandato desse político contendo uma nota de satisfação e uma descrição sobre o mandato atual pode ser feita pelas pessoas. Cada pessoa pode fazer somente uma avaliação por candidato e toda avaliação popular tem que estar associad a um político em mandato. Um político em mandato pode ter várias avaliações de pessoas diferentes com relação a ele e um político não precisa ser avaliado.  
+
+	Para monitorar possíveis casos de corrupção de políticos, é necessário armazenar os seguintes dados sobre doadores da campanha: nome do doador, valor doado e candidato que recebeu a doação.
+    
+    Um político pode ter vários doadores e não é obrigado a ter receber pelo menos uma doação. Um doador não é obrigado a fazer doeações e, além disso, pode fazer doações para várias pessoas. 
+    
+    Continuando o projeto dos mecanismos de controle de corrupção, torna-ne necessário guardar os processos que o candidato sofre na justiça. Sobre eles, é desejado conhecer: o número do processo, sua descrição, se ele terminou e a data de sua criação. 
+    
+    Um político pode ter tanto de nenhum a vários processos contra ele e todo processo precisa estar associado a pelo menos um político, podendo envolver vários políticos ao mesmo tempo.
+

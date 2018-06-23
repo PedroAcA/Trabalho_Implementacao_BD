@@ -1,7 +1,7 @@
 Sera utilizada django(versao 1.11.1) + pesquisa com comandos sql (em django) para implementar o crud
 Estrutura da pasta de implementação:
-
-		->SQL_controle_candidatos_mysqlworkbench.sql: arquivo com os comandos sql gerados automaticamente pelo MySQLworkbench para o modelo relacional presente na pasta Projetos/MR do repositório
+		
+		->SQL_controle_candidatos_django.sql: arquivo SQL gerado automaticamente pelo Django para criar as tabelas
 
 		->controle_candidatos: pasta contendo os apps em Django para fazer as funções de Create Retrieve Update e Delete (CRUD)
 
@@ -13,6 +13,9 @@ Estrutura da pasta de implementação:
 
 		->instrucoes_para_criar_banco_dados.txt: arquivo com instruções para configurar o MySQL no Django e para criar o banco de dados vazio sem utilizar comandos SQL. As instruções para criar o banco vazio também estão descritas abaixo nesse documento.  
 
+		->popular_cargo_partido.sql: arquivo contendo scprit SQL para popular as tabelas Cargo e Partido		
+
+		
 		->procedure.sql: arquivo sql com comando para criar uma procedure
 
 		->drop.sql: arquivo sql com comando para apagar o banco de dados e a procedure se esses existirem
